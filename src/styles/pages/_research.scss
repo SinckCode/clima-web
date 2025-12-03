@@ -1,0 +1,271 @@
+@use "../base/variables" as *;
+
+.research-page {
+  padding: 20px 26px 40px;
+  color: #e8eaff;
+
+  /* ancho contenido + centrado */
+  max-width: 1180px;
+  margin: 0 auto;
+
+  /* sutil separación del resto de la app */
+  background: radial-gradient(circle at top, #050716 0, #020311 55%, #01010a 100%);
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+
+    h1 {
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin-top: -4px;
+      font-size: 0.92rem;
+      color: $text-muted;
+      max-width: 520px;
+    }
+  }
+}
+
+.btn-export {
+  border: 1px solid $accent-soft;
+  background: linear-gradient(135deg, $accent, $accent-soft);
+  color: #050716;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.15s ease;
+  white-space: nowrap;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    opacity: 0.95;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.research {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    /* pequeña barra decorativa a la izquierda */
+    &::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, $accent, $accent-soft);
+    }
+  }
+
+  h3 {
+    margin-bottom: 4px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #d4d8ff;
+  }
+
+  section {
+    background: $bg-card;
+    border: 1px solid $border-subtle;
+    padding: 18px 22px;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-soft;
+    position: relative;
+
+    /* separación uniforme entre secciones (ya usamos gap) */
+    &:not(:last-child) {
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #cbd1ea;
+      line-height: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      margin: 6px 0 4px;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+        color: #cbd1ea;
+      }
+    }
+
+    .error {
+      color: #f87171;
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+  }
+
+  /* ====== Bloque de resumen con gráficas ====== */
+  &__summary {
+    .research__summary-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 16px;
+
+      @media (max-width: 960px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+
+      @media (max-width: 600px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .summary-card {
+      background: radial-gradient(circle at top, #1f2747 0, #050716 55%, #050612 100%);
+      border-radius: $radius-md;
+      padding: 12px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+
+      .label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $text-muted;
+      }
+
+      .value {
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 4px 0 6px;
+      }
+
+      p {
+        font-size: 0.8rem;
+        color: #aeb5da;
+        margin: 0;
+      }
+    }
+
+    .summary-charts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+
+      @media (max-width: 600px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .chart-box {
+      background: radial-gradient(circle at top, #151a33 0, #050716 65%, #040510 100%);
+      border-radius: $radius-md;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 10px 12px;
+
+      h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+      }
+
+      &__inner {
+        height: 220px;
+      }
+    }
+  }
+
+  /* ====== Tabla comparativa ====== */
+  .table-wrapper {
+    margin-top: 10px;
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    color: #d5daf5;
+
+    thead {
+      background: rgba(255, 255, 255, 0.04);
+
+      th {
+        text-align: left;
+        padding: 8px 10px;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      tr:nth-child(odd) {
+        background: rgba(255, 255, 255, 0.01);
+      }
+
+      td {
+        padding: 7px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+/* ====== Versión amigable para impresión del PDF (html2canvas) ====== */
+@media print {
+  .research-page {
+    padding: 0;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .btn-export {
+    display: none;
+  }
+
+  .research {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .research section {
+    box-shadow: none;
+    border-radius: 0;
+    border: 1px solid #cccccc;
+
+    h2::before {
+      background: #000;
+    }
+  }
+}

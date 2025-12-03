@@ -1,0 +1,112 @@
+// src/styles/components/_statCard.scss
+@use "../base/variables" as *;
+
+.stat-card {
+  background: $bg-card;
+  border-radius: $radius-lg;
+  padding: 16px 18px 14px;
+  border: 1px solid $border-subtle;
+  box-shadow: $shadow-soft;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    background: radial-gradient(
+      circle at top right,
+      rgba(79, 195, 247, 0.3),
+      transparent 55%
+    );
+    pointer-events: none;
+  }
+
+  &__header {
+    position: relative;
+    z-index: 1;
+
+    h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .stat-card__subtitle {
+      margin: 2px 0 0;
+      font-size: 0.78rem;
+      color: $text-muted;
+    }
+  }
+
+  &__body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  &__value {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__unit {
+    font-size: 0.9rem;
+    color: $text-muted;
+  }
+
+  &__footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 4px;
+  }
+}
+
+/* Estados */
+
+.stat-card--dentro {
+  border-color: rgba($success, 0.7);
+}
+
+.stat-card--bajo {
+  border-color: rgba($warning, 0.7);
+}
+
+.stat-card--alto {
+  border-color: rgba($danger, 0.7);
+}
+
+.stat-card__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 500;
+
+  &--dentro {
+    background: rgba($success, 0.1);
+    color: #b9f6ca;
+  }
+
+  &--bajo {
+    background: rgba($warning, 0.1);
+    color: #ffe082;
+  }
+
+  &--alto {
+    background: rgba($danger, 0.12);
+    color: #ff8a80;
+  }
+
+  &--sin_dato {
+    background: rgba(255, 255, 255, 0.03);
+    color: $text-muted;
+  }
+}

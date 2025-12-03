@@ -1,0 +1,6 @@
+// src/styles/App.scss
+@use "./base/variables" as *;
+
+body {
+  background: $bg-main;
+}
