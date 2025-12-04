@@ -6,6 +6,7 @@ import DailyAnalysisPage from "./pages/DailyAnalysisPage";
 import CompliancePage from "./pages/CompliancePage";
 import ResearchPage from "./pages/ResearchPage";
 import ResearchExtendedPage from "./pages/ResearchExtendedPage";
+import DailyHistoryPage from "./pages/DailyHistoryPage";
 
 import "./styles/base/_reset.scss";
 import "./styles/App.scss";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/compliance" element={<CompliancePage />} />
           <Route path="/research" element={<ResearchPage />} />
           <Route path="/research-extended" element={<ResearchExtendedPage />} />
+          <Route path="/daily-history" element={<DailyHistoryPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

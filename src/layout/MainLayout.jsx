@@ -9,7 +9,8 @@ const NAV_ITEMS = [
   { to: "/daily", label: "Análisis diario" },
   { to: "/compliance", label: "Cumplimiento normas" },
   { to: "/research", label: "Investigación" },
-  { to: "/research-extended", label: "Investigación extendida" }
+  { to: "/research-extended", label: "Investigación extendida" },
+  { to: "/daily-history", label: "Histórico diario" }
 ];
 
 export default function MainLayout() {
